@@ -30,3 +30,32 @@ btTema.addEventListener("click", function () {
     }
     tema = !tema
 })
+
+const aprovHabilit = document.getElementById("habilitarCss")
+let habilit = false
+
+function desabilitarCSS() {
+    const stylesheets = document.querySelectorAll('link[rel="stylesheet"], style')
+
+    stylesheets.forEach(sheet => {
+        sheet.disabled = !sheet.disabled
+    })
+
+    document.body.classList.toggle("no-css")
+
+    if(habilit === false){
+        aprovHabilit.textContent = "Habilitar CSS"
+        habilit = true
+    } else {
+        aprovHabilit.textContent = "Desabilitar CSS"
+        habilit = false
+    }
+}
+
+const mainImg = document.getElementById("main-img")
+let rotation = 0
+
+mainImg.addEventListener("click", function() {
+    rotation += 45
+    mainImg.style.transform = `rotate(${rotation}deg)`
+})
